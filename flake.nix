@@ -49,15 +49,13 @@
                     ruff
                     ty
                     nixfmt-rfc-style
-                    ruff
-                    ty
                     package
                   ]
                   ++ enabledPackages;
 
                   extraJailOptions = with jail.combinators; [
                     (readonly configFile)
-                    (readonly (lib.getExe package))
+                    (readonly (pkgs.lib.getExe package))
                   ];
                 }
               ));
